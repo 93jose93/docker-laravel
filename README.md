@@ -1,5 +1,5 @@
 
-#Image Ubuntu 20.04 (LTS) x64
+#VPS Ubuntu 20.04 (LTS) x64
 Size 1 vCPU
 1GB / 25GB Disk
 
@@ -34,47 +34,49 @@ Size 1 vCPU
 
 > curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+> sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
-sudo apt-get update
+> sudo apt-get update
 
-sudo apt-get install docker-ce
+> sudo apt-get install docker-ce
 
-sudo systemctl status docker
+> sudo systemctl status docker
 
-sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+> sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
-sudo chmod +x /usr/local/bin/docker-compose
+> sudo chmod +x /usr/local/bin/docker-compose
 
-docker-compose --version
+> docker-compose --version
 
 #################instalar composer vercion 2 para usar php 8
-php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+> php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 
-php -d allow_url_fopen=On composer-setup.php --install-dir=/usr/local/bin --filename=composer
+> php -d allow_url_fopen=On composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
-php -r "unlink('composer-setup.php');"
+> php -r "unlink('composer-setup.php');"
 
 
-export PATH="~/.config/composer/vendor/bin:$PATH"
+> export PATH="~/.config/composer/vendor/bin:$PATH"
 
 composer global require laravel/installer
-##############crear proyecto de laravel
+#crear proyecto de laravel
 creo un proyecto con laravel 10 y livewire
 
-laravel new app --jet
+> laravel new app --jet
 
-##############detener apache 
+#detener apache 
 
-sudo service apache2 stop
+> sudo service apache2 stop
 
-##############inicializar doker
+#inicializar doker
 
-docker-compose up -d --build
+> docker-compose up -d --build
 
 //ingresar con docker root
-docker exec -u root -it app /bin/bash
+> docker exec -u root -it app /bin/bash
 
-chmod -R 777 /var/www/storage/logs
-chown -R www:www /var/www/storage/logs
+> chmod -R 777 /var/www/storage/logs
+> chown -R www:www /var/www/storage/logs
+
+> exit
 
