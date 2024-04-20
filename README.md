@@ -84,7 +84,7 @@ creo un proyecto con laravel 10 y livewire
 #https://www.youtube.com/watch?v=GtuAfjIEIhY
 #Conectando Droplet con Filezilla
 #user:root
-#paswword: jose2477
+#paswword: passwordejemplo
 
 
 #ir al conf del ssh
