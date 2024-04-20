@@ -92,6 +92,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Install node
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - 
 RUN apt-get install -y nodejs
+
+RUN apt-get update && apt-get install -y npm
+
 RUN chmod 644 /etc/mysql/my.cnf
 # Add user for laravel application
 RUN groupadd -g 1000 www
